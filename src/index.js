@@ -17,4 +17,4 @@ CLS.TaggedObject = TaggedObject;
 import Scene from "./taggedObjects/Scene";
 CLS.Scene = Scene;
 
-export default CLS;
+module.exports = CLS;
