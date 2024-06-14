@@ -19,7 +19,7 @@ class SceneObject extends TaggedObject {
     // A number that determines the depth of the scene object (Higher depths are rendered first)
     this.depth = 0;
     // A number that determines the priority of the scene object (Higher priorities are updated first)
-    this.priority = 0;
+    this.tickPriority = 0;
 
     // A V2 that holds the position of the scene object
     this.#pos = pos;

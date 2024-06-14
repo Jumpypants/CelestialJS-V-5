@@ -106,7 +106,7 @@ class Scene extends TaggedObject {
 
   #tickObjects(dt) {
     // Sort the objects by priority
-    this.#sortObjectsByPriority();
+    this.#sortObjectsByTickPriority();
 
     // Loop through all the objects in the scene
     for (let object of this.objects) {
@@ -131,9 +131,9 @@ class Scene extends TaggedObject {
     this.objects.sort((a, b) => b.depth - a.depth);
   }
 
-  #sortObjectsByPriority() {
+  #sortObjectsByTickPriority() {
     // Sort the objects by priority from highest to lowest
-    this.objects.sort((a, b) => b.priority - a.priority);
+    this.objects.sort((a, b) => b.tickPriority - a.tickPriority);
   }
 };
 
