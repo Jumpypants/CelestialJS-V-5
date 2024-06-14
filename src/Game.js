@@ -3,8 +3,9 @@ class Game {
   #timeScale;
   #currentScreen;
   #intervalID;
+  #ctx;
 
-  constructor(fps = 60, timeScale = 1) {
+  constructor(ctx, fps = 60, timeScale = 1) {
     // A map that stores every scene in the game by name
     this.scenes = new Map();
     // A map that stores every screen in the game by name
@@ -16,6 +17,8 @@ class Game {
     this.#fps = fps;
     // A float that holds the time scale of the game
     this.#timeScale = timeScale;
+    // The canvas context
+    this.#ctx = ctx;
   }
 
   set currentScreen(screen) {
@@ -80,10 +83,10 @@ class Game {
 
   tick() {
     // Update the current screen
-    this.#updateScreen(this.deltaTime);
+    this.#renderScreen(this.deltaTime, this.#ctx);
 
     // Update the scenes
-    this.#updateScenes(this.deltaTime);
+    this.#tickScenes(this.deltaTime);
   }
 
   addScene(scene) {
@@ -107,7 +110,7 @@ class Game {
     screen.game = this;
   }
 
-  #updateScreen(dt) {
+  #renderScreen(dt, ctx) {
     // Get the current screen
     const screen = this.screens.get(this.#currentScreen);
 
@@ -116,13 +119,11 @@ class Game {
       throw new Error(`Screen ${this.#currentScreen} does not exist`);
     }
 
-    // Tick the screen
-    screen.tick(dt);
     // Render the screen
-    screen.render(dt);
+    screen.render(dt, ctx);
   }
 
-  #updateScenes(dt) {
+  #tickScenes(dt) {
     // Tick every scene
     for (const scene of this.scenes.values()) {
       scene.tick(dt);

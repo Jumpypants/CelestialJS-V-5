@@ -4,7 +4,7 @@ class V2 {
     this.y = y;
   }
 
-  move(v){
+  translate(v){
     this.x += v.x;
     this.y += v.y;
   }
@@ -18,7 +18,7 @@ class V2 {
     return new CLS.V2(this.x + v.x, this.y + v.y);
   }
 
-  subtract(v){
+  sub(v){
     return new CLS.V2(this.x - v.x, this.y - v.y);
   }
 
