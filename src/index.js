@@ -6,7 +6,7 @@ import V2 from "./V2.js";
 CLS.V2 = V2;
 
 // Import the ImageHandler class
-import ImageHandler from "./ImageHandler.js";
+import ImageHandler from "./imageHandlers/ImageHandler.js";
 CLS.ImageHandler = ImageHandler;
 
 // Import the Game class
