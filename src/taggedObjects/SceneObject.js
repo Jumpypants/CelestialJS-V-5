@@ -102,9 +102,13 @@ class SceneObject extends TaggedObject {
     }
   }
 
-  tick(dt) {}
+  tick(dt) {
+    // To be overridden in subclasses
+  }
 
-  render(dt, ctx) {}
+  render(dt, ctx) {
+    // To be overridden in subclasses
+  }
 }
 
 export default SceneObject;

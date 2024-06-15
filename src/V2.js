@@ -22,6 +22,10 @@ class V2 {
     return new CLS.V2(this.x - v.x, this.y - v.y);
   }
 
+  subAbs(v){
+    return new CLS.V2(Math.abs(this.x - v.x), Math.abs(this.y - v.y));
+  }
+
   scale(s){
     return new CLS.V2(this.x * s, this.y * s);
   }

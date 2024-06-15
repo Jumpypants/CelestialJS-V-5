@@ -40,11 +40,17 @@ class Entity extends SceneObject {
   }
 
   tick(dt) {
+    // Call the parent tick method
+    super.tick(dt);
+
     // Tick the objects in the entity
     this.#tickObjects(dt);
   }
 
   render(dt, ctx) {
+    // Call the parent render method
+    super.render(dt, ctx);
+
     // Render the objects in the entity
     this.#renderObjects(dt, ctx);
   }
