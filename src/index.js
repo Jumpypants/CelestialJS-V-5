@@ -5,12 +5,16 @@ const CLS = {};
 import V2 from "./V2.js";
 CLS.V2 = V2;
 
+// Import the ImageHandler class
+import ImageHandler from "./ImageHandler.js";
+CLS.ImageHandler = ImageHandler;
+
 // Import the Game class
 import Game from "./Game.js";
 CLS.Game = Game;
 
 // Import the TaggedObject class
-import TaggedObject from "./TaggedObject.js";
+import TaggedObject from "./taggedObjects/TaggedObject.js";
 CLS.TaggedObject = TaggedObject;
 
 // Import the Scene class
@@ -36,5 +40,9 @@ CLS.RectCollider = RectCollider;
 // Import the CircleCollider class
 import CircleCollider from "./taggedObjects/sceneObjects/colliders/CircleCollider.js";
 CLS.CircleCollider = CircleCollider;
+
+// Import the Sprite class
+import Sprite from "./taggedObjects/sceneObjects/Sprite.js";
+CLS.Sprite = Sprite;
 
 export default CLS;
