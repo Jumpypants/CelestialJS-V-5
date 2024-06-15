@@ -6,12 +6,17 @@ class Game {
     this.screens = new Map();
 
     // A string that holds the name of the current screen
-    this._currentScreen = "";
+    this._currentScreenName = "";
     // An integer that holds the frames per second of the game
     this._fps = fps;
     // A float that holds the time scale of the game
     this._timeScale = timeScale;
     // The canvas context
+    this._ctx = ctx;
+  }
+
+  set ctx(ctx) {
+    // Set the canvas context to the canvas context
     this._ctx = ctx;
   }
 
@@ -22,7 +27,7 @@ class Game {
     }
 
     // Set the current screen to the screenxs
-    this._currentScreen = screen;
+    this._currentScreenName = screen;
   }
 
   set fps(fps) {
@@ -62,7 +67,7 @@ class Game {
 
   start() {
     // If the current screen is not set, throw an error
-    if (!this._currentScreen) {
+    if (!this._currentScreenName) {
       throw new Error("Current screen is not set");
     }
 
@@ -106,11 +111,11 @@ class Game {
 
   _renderScreen(dt, ctx) {
     // Get the current screen
-    const screen = this.screens.get(this._currentScreen);
+    const screen = this.screens.get(this._currentScreenName);
 
     // If the screen does not exist, throw an error
     if (!screen) {
-      throw new Error(`Screen ${this._currentScreen} does not exist`);
+      throw new Error(`Screen ${this._currentScreenName} does not exist`);
     }
 
     // Render the screen

@@ -1,7 +1,7 @@
 // Import the TaggedObject class
-import TaggedObject from "./taggedObject";
+import TaggedObject from "./taggedObject.js";
 // Import the V2 class
-import V2 from "../V2";
+import V2 from "../V2.js";
 
 class SceneObject extends TaggedObject {
   constructor(pos = new V2(0, 0), objects = [], isRigid = true) {

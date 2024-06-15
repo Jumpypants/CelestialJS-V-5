@@ -1,0 +1,12 @@
+{
+  "name": "celestialjs",
+  "version": "5.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'No build step needed for simple library'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

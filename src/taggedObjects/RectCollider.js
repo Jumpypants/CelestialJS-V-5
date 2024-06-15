@@ -1,5 +1,7 @@
 // Import the Collider class
-import Collider from "./tCollider";
+import Collider from "./Collider.js";
+// Import the V2 class
+import V2 from "../V2.js";
 
 class RectCollider extends Collider {
   constructor(pos = new V2(0, 0), size = new V2(0, 0), isRigid = true) {
