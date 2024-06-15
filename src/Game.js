@@ -1,10 +1,4 @@
 class Game {
-  #fps;
-  #timeScale;
-  #currentScreen;
-  #intervalID;
-  #ctx;
-
   constructor(ctx, fps = 60, timeScale = 1) {
     // A map that stores every scene in the game by name
     this.scenes = new Map();
@@ -12,13 +6,13 @@ class Game {
     this.screens = new Map();
 
     // A string that holds the name of the current screen
-    this.#currentScreen = "";
+    this._currentScreen = "";
     // An integer that holds the frames per second of the game
-    this.#fps = fps;
+    this._fps = fps;
     // A float that holds the time scale of the game
-    this.#timeScale = timeScale;
+    this._timeScale = timeScale;
     // The canvas context
-    this.#ctx = ctx;
+    this._ctx = ctx;
   }
 
   set currentScreen(screen) {
@@ -28,7 +22,7 @@ class Game {
     }
 
     // Set the current screen to the screenxs
-    this.#currentScreen = screen;
+    this._currentScreen = screen;
   }
 
   set fps(fps) {
@@ -43,7 +37,7 @@ class Game {
     }
 
     // Set the fps to the fps
-    this.#fps = fps;
+    this._fps = fps;
   }
 
   set timeScale(timeScale) {
@@ -58,35 +52,35 @@ class Game {
     }
 
     // Set the time scale to the time scale
-    this.#timeScale = timeScale;
+    this._timeScale = timeScale;
   }
 
   get deltaTime() {
     // Return the delta time
-    return 1 / this.#fps * this.#timeScale;
+    return 1 / this._fps * this._timeScale;
   }
 
   start() {
     // If the current screen is not set, throw an error
-    if (!this.#currentScreen) {
+    if (!this._currentScreen) {
       throw new Error("Current screen is not set");
     }
 
     // Start the game loop and store the interval ID
-    this.#intervalID = setInterval(this.tick.bind(this), 1000 / this.#fps);
+    this._intervalID = setInterval(this.tick.bind(this), 1000 / this._fps);
   }
 
   stop() {
     // Clear the interval
-    clearInterval(this.#intervalID);
+    clearInterval(this._intervalID);
   }
 
   tick() {
     // Update the current screen
-    this.#renderScreen(this.deltaTime, this.#ctx);
+    this._renderScreen(this.deltaTime, this._ctx);
 
     // Update the scenes
-    this.#tickScenes(this.deltaTime);
+    this._tickScenes(this.deltaTime);
   }
 
   addScene(scene) {
@@ -110,20 +104,20 @@ class Game {
     screen.game = this;
   }
 
-  #renderScreen(dt, ctx) {
+  _renderScreen(dt, ctx) {
     // Get the current screen
-    const screen = this.screens.get(this.#currentScreen);
+    const screen = this.screens.get(this._currentScreen);
 
     // If the screen does not exist, throw an error
     if (!screen) {
-      throw new Error(`Screen ${this.#currentScreen} does not exist`);
+      throw new Error(`Screen ${this._currentScreen} does not exist`);
     }
 
     // Render the screen
     screen.render(dt, ctx);
   }
 
-  #tickScenes(dt) {
+  _tickScenes(dt) {
     // Tick every scene
     for (const scene of this.scenes.values()) {
       scene.tick(dt);

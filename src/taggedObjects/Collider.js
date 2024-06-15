@@ -52,7 +52,7 @@ class Collider extends SceneObject {
     super.tick(dt);
 
     // Check for collisions
-    this.#checkCollisions();
+    this._checkCollisions(dt);
   }
 
   render(dt, ctx) {
@@ -60,24 +60,25 @@ class Collider extends SceneObject {
     super.render(dt, ctx);
   }
 
-  #checkCollisions(){
+  _checkCollisions(dt){
     // Get the leaf objects
     const leafObjects = this.scene.leafObjects;
 
     // Loop through all the leaf objects
     for (let object of leafObjects) {
       // If the object has the "Collider" tag and is not this object and collides with this object
-      if (object.hasTag("Collider") && object !== this && this.#collidesWith(object)) {
-        this.#onCollision(object);
+      if (object.hasTag("Collider") && object !== this && this._collidesWith(object)) {
+        this._onCollision(object, this.depth === object.depth, dt);
       }
     }
+
   }
 
-  #collidesWith(object){
+  _collidesWith(object) {
     // To be overridden in subclasses
   }
 
-  #onCollision(object){
+  _onCollision(object, sameDepth, dt) {
     // To be overridden in subclasses
   }
 }

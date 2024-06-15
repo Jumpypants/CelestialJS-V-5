@@ -44,7 +44,7 @@ class Entity extends SceneObject {
     super.tick(dt);
 
     // Tick the objects in the entity
-    this.#tickObjects(dt);
+    this._tickObjects(dt);
   }
 
   render(dt, ctx) {
@@ -52,12 +52,12 @@ class Entity extends SceneObject {
     super.render(dt, ctx);
 
     // Render the objects in the entity
-    this.#renderObjects(dt, ctx);
+    this._renderObjects(dt, ctx);
   }
 
-  #tickObjects(dt) {
+  _tickObjects(dt) {
     // Sort the objects by priority
-    this.#sortObjectsByTickPriority();
+    this._sortObjectsByTickPriority();
     
     // Loop through all the objects in the scene
     for (let object of this.objects) {
@@ -66,9 +66,9 @@ class Entity extends SceneObject {
     }
   }
 
-  #renderObjects(dt, ctx) {
+  _renderObjects(dt, ctx) {
     // Sort the objects by depth
-    this.#sortObjectsByDepth();
+    this._sortObjectsByDepth();
     
     // Loop through all the objects in the scene
     for (let object of this.objects) {
@@ -77,12 +77,12 @@ class Entity extends SceneObject {
     }
   }
 
-  #sortObjectsByDepth() {
+  _sortObjectsByDepth() {
     // Sort the objects by depth from highest to lowest
     this.objects.sort((a, b) => b.depth - a.depth);
   }
 
-  #sortObjectsByTickPriority() {
+  _sortObjectsByTickPriority() {
     // Sort the objects by priority from highest to lowest
     this.objects.sort((a, b) => b.tickPriority - a.tickPriority);
   }

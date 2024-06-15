@@ -4,10 +4,6 @@ import TaggedObject from "./taggedObject";
 import V2 from "../V2";
 
 class SceneObject extends TaggedObject {
-  #scene;
-  #pos;
-  #parent;
-
   constructor(pos = new V2(0, 0), objects = [], isRigid = true) {
     // Call the parent constructor
     super();
@@ -22,21 +18,21 @@ class SceneObject extends TaggedObject {
     this.tickPriority = 0;
 
     // A V2 that holds the position of the scene object
-    this.#pos = pos;
+    this._pos = pos;
     // A pointer to the scene that the scene object is in (Will be set when the scene object is added to a scene)
     // This will be null unless this is a root scene object
-    this.#scene = null;
+    this._scene = null;
     // A pointer to the parent scene object of this scene object (Will be set when the scene object is added to a parent scene object)
     // If the scene object is not added to a parent scene object, this will be null
-    this.#parent = null;
+    this._parent = null;
   }
 
   get globalPos() {
     // If the scene object has a parent, return the sum of the parent's global position and the position
-    if (this.#parent !== null) {
-      return this.#parent.globalPos.add(this.#pos);
+    if (this._parent !== null) {
+      return this._parent.globalPos.add(this._pos);
     } else {
-      return this.#pos;
+      return this._pos;
     }
     
   }
@@ -50,44 +46,44 @@ class SceneObject extends TaggedObject {
 
   get pos() {
     // Return the position of the scene object
-    return this.#pos;
+    return this._pos;
   }
 
   get scene() {
     // If the scene is null, return the parent scene
-    if (this.#scene === null) {
-      return this.#parent.scene;
+    if (this._scene === null) {
+      return this._parent.scene;
     } else {
-      return this.#scene;
+      return this._scene;
     }
   }
 
   get parent() {
     // Return the parent of the scene object
-    return this.#parent;
+    return this._parent;
   }
 
   set parent(parent) {
     // Set the parent to the parent
-    this.#parent = parent
+    this._parent = parent
   }
 
   set scene(scene) {
     // Set the scene to the scene
-    this.#scene = scene;
+    this._scene = scene;
   }
 
   set pos(pos) {
     // Set the position to the position
-    this.#pos = pos;
+    this._pos = pos;
   }
 
   moveBy(v) {
     // If the scene object is rigid, move the parent object by the vector
     if (this.isRigid) {
-      this.#parent.moveBy(v);
+      this._parent.moveBy(v);
     } else {
-      this.#pos = this.#pos.translate(v);
+      this._pos = this._pos.translate(v);
     }
   }
 
@@ -95,10 +91,10 @@ class SceneObject extends TaggedObject {
     // If the scene object is rigid
     if (this.isRigid) {
       // Move the parent object by the difference between the new position and the old position
-      this.#parent.moveBy(v.sub(this.globalPos));
+      this._parent.moveBy(v.sub(this.globalPos));
     } else {
       // Set the position to the new position
-      this.#pos = v;
+      this._pos = v;
     }
   }
 

@@ -2,10 +2,6 @@
 import TaggedObject from "./taggedObject";
 
 class Scene extends TaggedObject {
-  #game;
-  #active;
-  #name;
-
   constructor(name, objects = [], active = true) {
     // Call the parent constructor
     super();
@@ -20,21 +16,21 @@ class Scene extends TaggedObject {
     }
 
     // A pointer to the game that the scene is in (Will be set when the scene is added to a game)
-    this.#game = null;
+    this._game = null;
     // A boolean that determines if the scene is active
-    this.#active = active;
+    this._active = active;
     // A string that holds the name of the scene
-    this.#name = name;
+    this._name = name;
   }
 
   get name() {
     // Return the name of the scene
-    return this.#name;
+    return this._name;
   }
 
   get game() {
     // Return the game
-    return this.#game;
+    return this._game;
   }
 
   get leafObjects() {
@@ -52,7 +48,7 @@ class Scene extends TaggedObject {
 
   set game(game) {
     // Set the game to the game
-    this.#game = game;
+    this._game = game;
   }
 
   addObject(object) {
@@ -65,17 +61,17 @@ class Scene extends TaggedObject {
 
   tick(dt) {
     // If the scene is not active, return
-    if (!this.#active) {
+    if (!this._active) {
       return;
     }
 
     // Tick the objects in the scene
-    this.#tickObjects(dt);
+    this._tickObjects(dt);
   }
 
   render(dt, ctx) {
     // Loop through all the objects in the scene
-    this.#renderObjects(dt, ctx);
+    this._renderObjects(dt, ctx);
   }
 
   getCameraByName(name) {
@@ -96,17 +92,17 @@ class Scene extends TaggedObject {
 
   activate() {
     // Set the active flag to true
-    this.#active = true;
+    this._active = true;
   }
 
   deactivate() {
     // Set the active flag to false
-    this.#active = false;
+    this._active = false;
   }
 
-  #tickObjects(dt) {
+  _tickObjects(dt) {
     // Sort the objects by priority
-    this.#sortObjectsByTickPriority();
+    this._sortObjectsByTickPriority();
 
     // Loop through all the objects in the scene
     for (let object of this.objects) {
@@ -115,9 +111,9 @@ class Scene extends TaggedObject {
     }
   }
 
-  #renderObjects(dt, ctx) {
+  _renderObjects(dt, ctx) {
     // Sort the objects by depth
-    this.#sortObjectsByDepth();
+    this._sortObjectsByDepth();
     
     // Loop through all the objects in the scene
     for (let object of this.objects) {
@@ -126,12 +122,12 @@ class Scene extends TaggedObject {
     }
   }
 
-  #sortObjectsByDepth() {
+  _sortObjectsByDepth() {
     // Sort the objects by depth from highest to lowest
     this.objects.sort((a, b) => b.depth - a.depth);
   }
 
-  #sortObjectsByTickPriority() {
+  _sortObjectsByTickPriority() {
     // Sort the objects by priority from highest to lowest
     this.objects.sort((a, b) => b.tickPriority - a.tickPriority);
   }

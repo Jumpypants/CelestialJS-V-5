@@ -1,20 +1,18 @@
 class TaggedObject {
-  #tags;
-
   constructor() {
-    this.#tags = new Set();
+    this._tags = new Set();
   }
 
   addTag(tag) {
-    this.#tags.add(tag);
+    this._tags.add(tag);
   }
 
   removeTag(tag) {
-    this.#tags.delete(tag);
+    this._tags.delete(tag);
   }
 
   hasTag(tag) {
-    return this.#tags.has(tag);
+    return this._tags.has(tag);
   }
 };
 
