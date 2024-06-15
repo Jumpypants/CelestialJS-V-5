@@ -9,6 +9,10 @@ CLS.V2 = V2;
 import ImageHandler from "./imageHandlers/ImageHandler.js";
 CLS.ImageHandler = ImageHandler;
 
+// Import the Animation class
+import Animation from "./imageHandlers/Animation.js";
+CLS.Animation = Animation;
+
 // Import the Game class
 import Game from "./Game.js";
 CLS.Game = Game;
