@@ -1,5 +1,5 @@
 // Import the TaggedObject class
-import TaggedObject from "./taggedObject.js";
+import TaggedObject from "../TaggedObject.js";
 // Import the V2 class
 import V2 from "../V2.js";
 

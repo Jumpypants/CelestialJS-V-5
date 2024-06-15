@@ -1,5 +1,5 @@
 // Import the TaggedObject class
-import TaggedObject from "./taggedObject.js";
+import TaggedObject from "../TaggedObject.js";
 
 class Scene extends TaggedObject {
   constructor(name, objects = [], active = true) {

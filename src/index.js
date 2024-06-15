@@ -10,7 +10,7 @@ import Game from "./Game.js";
 CLS.Game = Game;
 
 // Import the TaggedObject class
-import TaggedObject from "./taggedObjects/taggedObject.js";
+import TaggedObject from "./TaggedObject.js";
 CLS.TaggedObject = TaggedObject;
 
 // Import the Scene class
@@ -30,11 +30,11 @@ import Collider from "./taggedObjects/Collider.js";
 CLS.Collider = Collider;
 
 // Import the RectCollider class
-import RectCollider from "./taggedObjects/RectCollider.js";
+import RectCollider from "./taggedObjects/sceneObjects/colliders/RectCollider.js";
 CLS.RectCollider = RectCollider;
 
 // Import the CircleCollider class
-import CircleCollider from "./taggedObjects/CircleCollider.js";
+import CircleCollider from "./taggedObjects/sceneObjects/colliders/CircleCollider.js";
 CLS.CircleCollider = CircleCollider;
 
 export default CLS;

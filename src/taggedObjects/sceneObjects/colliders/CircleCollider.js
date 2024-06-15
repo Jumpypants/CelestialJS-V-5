@@ -1,7 +1,7 @@
 // Import the Collider class
 import Collider from "./Collider.js";
 // Import the V2 class
-import V2 from "../V2.js";
+import V2 from "../../../V2.js";
 
 class CircleCollider extends Collider {
   constructor(pos = new V2(0, 0), radius = 10, isRigid = true) {
