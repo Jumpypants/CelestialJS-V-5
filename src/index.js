@@ -26,15 +26,15 @@ import Scene from "./taggedObjects/Scene.js";
 CLS.Scene = Scene;
 
 // Import the SceneObject class
-import SceneObject from "./taggedObjects/SceneObject.js";
+import SceneObject from "./taggedObjects/sceneObjects/SceneObject.js";
 CLS.SceneObject = SceneObject;
 
 // Import the Entity class
-import Entity from "./taggedObjects/Entity.js";
+import Entity from "./taggedObjects/sceneObjects/Entity.js";
 CLS.Entity = Entity;
 
 // Import the Collider class
-import Collider from "./taggedObjects/Collider.js";
+import Collider from "./taggedObjects/sceneObjects/colliders/Collider.js";
 CLS.Collider = Collider;
 
 // Import the RectCollider class
