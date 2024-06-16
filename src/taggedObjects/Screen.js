@@ -16,6 +16,8 @@ class Screen extends TaggedObject {
     for (let element of elements) {
       this.addElement(element);
     }
+    // A pointer to the game that the screen is in (Will be set when the screen is added to a game)
+    this._game = null;
   }
 
   render(dt, ctx) {
