@@ -1,7 +1,7 @@
 // Import the SceneObject class
 import SceneObject from "./SceneObject.js";
 // Import the V2 class
-import V2 from "../V2.js";
+import V2 from "../../V2.js";
 
 class Camera extends SceneObject {
   constructor(name, pos = new V2(0, 0), fov = 100, isRigid = true) {

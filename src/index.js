@@ -25,6 +25,22 @@ CLS.TaggedObject = TaggedObject;
 import Scene from "./taggedObjects/Scene.js";
 CLS.Scene = Scene;
 
+// Import the Screen class
+import Screen from "./taggedObjects/Screen.js";
+CLS.Screen = Screen;
+
+// Import the UIElement class
+import UIElement from "./taggedObjects/screenObjects/ScreenObject.js";
+CLS.UIElement = UIElement;
+
+// Import the TextElement class
+import TextElement from "./taggedObjects/screenObjects/TextElement.js";
+CLS.TextElement = TextElement;
+
+// Import the DisplayElement class
+import DisplayElement from "./taggedObjects/screenObjects/DisplayElement.js";
+CLS.DisplayElement = DisplayElement;
+
 // Import the SceneObject class
 import SceneObject from "./taggedObjects/sceneObjects/SceneObject.js";
 CLS.SceneObject = SceneObject;
@@ -48,5 +64,9 @@ CLS.CircleCollider = CircleCollider;
 // Import the Sprite class
 import Sprite from "./taggedObjects/sceneObjects/Sprite.js";
 CLS.Sprite = Sprite;
+
+// Import the Camera class
+import Camera from "./taggedObjects/sceneObjects/Camera.js";
+CLS.Camera = Camera;
 
 export default CLS;

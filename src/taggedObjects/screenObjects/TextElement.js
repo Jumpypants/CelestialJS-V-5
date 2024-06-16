@@ -1,10 +1,9 @@
-// Import the UIElement class
-import UIElement from "./UIElement.js";
+// Import the ScreenObject class
+import ScreenObject from "./ScreenObject.js";
 // Import the V2 class
-import V2 from "../V2.js";
-import UIElement from "./UIElement.js";
+import V2 from "../../V2.js";
 
-class TextElement extends UIElement {
+class TextElement extends ScreenObject {
   constructor(text, pos = new V2(0, 0), font = "32px arial", color = "red", anchor = "center", align = "start", baseline = "middle") {
     // Call the parent constructor
     super(pos, anchor);

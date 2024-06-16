@@ -1,9 +1,9 @@
-// Import the UIElement class
-import UIElement from "./UIElement.js";
+// Import the ScreenObject class
+import ScreenObject from "./ScreenObject.js";
 // Import the V2 class
-import V2 from "../V2.js";
+import V2 from "../../V2.js";
 
-class DisplayElement extends UIElement {
+class DisplayElement extends ScreenObject {
   constructor(sceneName, cameraName, pos = new V2(0, 0), size = new V2(1, 1), sizeType = "fraction", anchor = "center") {
     // Call the parent constructor
     super(pos, anchor);

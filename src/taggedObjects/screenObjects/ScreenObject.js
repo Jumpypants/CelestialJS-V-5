@@ -1,14 +1,14 @@
 // Import the TaggedObject class
 import TaggedObject from "../TaggedObject.js";
 // Import the V2 class
-import V2 from "../V2.js";
+import V2 from "../../V2.js";
 
-class UIElement extends TaggedObject {
+class ScreenObject extends TaggedObject {
   constructor(pos = new V2(0, 0), anchor = "center") {
     // Call the parent constructor
     super();
-    // Add the "UIElement" tag to the screen element
-    this.addTag("UIElement");
+    // Add the "ScreenObject" tag to the screen element
+    this.addTag("ScreenObject");
 
     // A V2 that holds the position of the screen element
     this.pos = pos;
@@ -72,4 +72,4 @@ class UIElement extends TaggedObject {
   }
 }
 
-export default UIElement;
+export default ScreenObject;
