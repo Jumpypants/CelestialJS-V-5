@@ -69,4 +69,4 @@ CLS.Sprite = Sprite;
 import Camera from "./taggedObjects/sceneObjects/Camera.js";
 CLS.Camera = Camera;
 
-export default CLS;
+module.exports = CLS;
